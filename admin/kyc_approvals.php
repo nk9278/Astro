@@ -123,7 +123,7 @@ include '../assets/header.php';
     <?php endif; ?>
 
     <!-- Data Table / Cards -->
-    <div class="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden md:overflow-x-auto">
+    <div class="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden overflow-x-auto">
         <?php if (count($pending_astrologers) > 0): ?>
             <table class="w-full text-left border-collapse">
                 <thead>

@@ -129,7 +129,7 @@ if (!empty($users)) {
         <p class="text-gray-500 font-medium mt-1">Track users who registered via referral links and their bonuses.</p>
     </div>
 
-    <div class="bg-white border border-gray-200 rounded-3xl shadow-sm overflow-hidden md:overflow-x-auto p-1 sm:p-0">
+    <div class="bg-white border border-gray-200 rounded-3xl shadow-sm overflow-hidden overflow-x-auto p-1 sm:p-0">
         <table class="w-full text-left border-collapse">
             <thead>
                 <tr>

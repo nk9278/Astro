@@ -119,7 +119,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <a href="products_add.php" class="inline-block bg-gray-900 text-white px-6 py-3 rounded-xl font-bold shadow-md hover:bg-black transition-all dark:bg-red-600 dark:hover:bg-red-700">Add First Product</a>
         </div>
     <?php else: ?>
-        <div class="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden md:overflow-x-auto">
+        <div class="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden overflow-x-auto">
             <table class="w-full text-left border-collapse">
                 <thead>
                     <tr>

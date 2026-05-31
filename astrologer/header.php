@@ -197,10 +197,15 @@ document.addEventListener("DOMContentLoaded", function() {
             // A 300ms delay gives the mobile OS keyboard enough time to pop up 
             // before calculating the new scroll position.
             setTimeout(() => {
-                this.scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'center' 
-                });
+                if (window.visualViewport) {
+                    const viewportHeight = window.visualViewport.height;
+                    const rect = this.getBoundingClientRect();
+                    if (rect.bottom > viewportHeight || rect.top < 0) {
+                        this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                } else {
+                    this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
             }, 300);
         });
     });

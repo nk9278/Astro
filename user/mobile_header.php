@@ -117,10 +117,12 @@ if (isset($_SESSION['userid'])) {
         padding: 8px 20px; 
         color: #374151; text-decoration: none; 
         font-size: 14px; 
-        font-weight: 500; gap: 12px; transition: background 0.2s;
+        font-weight: 500; gap: 12px; transition: all 0.3s ease-in-out;
     }
+    .nav-item:hover { background: #f9fafb; transform: translateX(4px); }
     .nav-item:active { background: #f3f4f6; }
-    .nav-item .material-icons { font-size: 18px; color: #9ca3af; } 
+    .nav-item .material-icons { font-size: 18px; color: #9ca3af; transition: color 0.3s ease; }
+    .nav-item:hover .material-icons { color: #374151; }
 
     /* Submenu Styles */
     .sub-nav-item {
@@ -128,8 +130,9 @@ if (isset($_SESSION['userid'])) {
         padding: 8px 20px; 
         color: #4b5563; text-decoration: none; 
         font-size: 13px; 
-        font-weight: 500; transition: all 0.2s;
+        font-weight: 500; transition: all 0.3s ease-in-out;
     }
+    .sub-nav-item:hover { color: #111827; background: #f9fafb; transform: translateX(4px); }
     .sub-nav-item:active { color: #111827; background: #f3f4f6; }
 </style>
 
@@ -261,7 +264,7 @@ if (isset($_SESSION['userid'])) {
 
     <?php if (!$isLoggedIn): ?>
     <div style="padding: 15px 20px; border-top: 1px solid #f3f4f6;">
-        <a href="/auth/login.php" class="dark-bg-override" style="display:flex; align-items:center; justify-content:center; background:#374151; color:#fff; padding:10px; border-radius:8px; font-weight:600; font-size: 14px; text-decoration:none; box-shadow: 0 4px 6px -1px rgba(55, 65, 81, 0.2);">
+        <a href="/auth/login.php" class="dark-bg-override hover:bg-gray-700 hover:-translate-y-0.5 transition-all duration-300 ease-in-out" style="display:flex; align-items:center; justify-content:center; background:#374151; color:#fff; padding:10px; border-radius:8px; font-weight:600; font-size: 14px; text-decoration:none; box-shadow: 0 4px 6px -1px rgba(55, 65, 81, 0.2);">
             <?= __m('Login / Sign Up') ?>
         </a>
     </div>
@@ -357,10 +360,15 @@ document.addEventListener("DOMContentLoaded", function() {
             // A 300ms delay gives the mobile OS keyboard enough time to pop up 
             // before calculating the new scroll position.
             setTimeout(() => {
-                this.scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'start' // Pushes the element higher up the screen
-                });
+                if (window.visualViewport) {
+                    const viewportHeight = window.visualViewport.height;
+                    const rect = this.getBoundingClientRect();
+                    if (rect.bottom > viewportHeight || rect.top < 0) {
+                        this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                } else {
+                    this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
             }, 300);
         });
     });

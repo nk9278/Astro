@@ -127,7 +127,7 @@ $astrologers = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
     <!-- Astrologers Table -->
-    <div class="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden md:overflow-x-auto">
+    <div class="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden overflow-x-auto">
         <table class="w-full text-left border-collapse">
             <thead>
                 <tr>

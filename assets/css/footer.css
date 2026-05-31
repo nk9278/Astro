@@ -1,0 +1,20 @@
+.mobile-footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: var(--footer-bg);
+  padding: 0.7rem 0;
+  border-top: 1px solid #ccc;
+  font-size: 1.1rem;
+  z-index: 999;
+}
+
+.mobile-footer a {
+  text-decoration: none;
+  color: var(--footer-link);
+  flex: 1;
+  text-align: center;
+}

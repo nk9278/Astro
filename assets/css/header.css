@@ -1,0 +1,33 @@
+.mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 8px;
+  background: var(--header-bg, #fff);
+  color: var(--header-text, #222);
+  box-shadow: 0 1px 8px rgba(110, 74, 255, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.icon-btn {
+  background: none;
+  border: none;
+  padding: 0 6px;
+  cursor: pointer;
+}
+.header-title {
+  font-size: 1.3rem;
+  flex: 1;
+  text-align: center;
+  font-weight: 500;
+  color: #222;
+}
+body.light {
+  background: #f6f6f8;
+  color: #222;
+}
+body.dark {
+  background: #161022;
+  color: #fff;
+}
